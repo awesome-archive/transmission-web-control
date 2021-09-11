@@ -136,6 +136,7 @@
 	"dialog": {
 		"torrent-add": {
 			"download-dir": "Katalog pobierania:",
+			"used-download-dir": "Używany katalog pobierania:",
 			"torrent-url": "Link do torrenta:",
 			"tip-torrent-url": "Wskazówka: każdy w nowej linii (oddziel klawiszem ENTER)",
 			"autostart": "Uruchom pobieranie:",
@@ -166,7 +167,7 @@
 			"download-queue-enabled": "Włącz kolejkę pobierania, maksymalna ilość kolejek:",
 			"seed-queue-enabled": "Włącz kolejkę wysyłania, maksymalna ilość kolejek:",
 			"peer-port-random-on-start": "Użyj losowego portu podczas uruchamiania",
-			"port-forwarding-enabled": "Włącz przekierowywanie portów",
+			"port-forwarding-enabled": "Włącz przekierowywanie portów (UPnP)",
 			"test-port": "Testuj port",
 			"port-is-open-true": "Port jest otwarty",
 			"port-is-open-false": "Port jest zamknięty",
@@ -177,7 +178,7 @@
 				"preferred": "Preferowane",
 				"tolerated": "Tolerowane"
 			},
-			"utp-enabled": "Włącz µTP (UPnP)",
+			"utp-enabled": "Włącz µTP",
 			"dht-enabled": "Włącz DHT",
 			"lpd-enabled": "Włącz LPD",
 			"pex-enabled": "Włącz PEX",
@@ -224,7 +225,12 @@
 			"import-config": "Import konfiguracji z pliku",
 			"export-config": "Eksport aktualnej konfiguracji",
 			"import-config-confirm": "Czy na pewno chcesz importować nowe ustawienia? Spowoduje to nieodwracalne nadpisanie aktualnej konfiguracji.",
-			"script-torrent-done-enabled": "Gdy pobieranie torrenta zostanie ukończone uruchamiaj następujący skrypt:"
+			"script-torrent-done-enabled": "Gdy pobieranie torrenta zostanie ukończone uruchamiaj następujący skrypt:",
+			"ipinfo": "Token IPinfo.io",
+			"ipInfoCustom": "Dodatkowe ustawienia usługi zapytań IP, można użyć niestandardowego adresu URL, odpowiedniego dla lokalnych usług zapytań",
+			"ipInfoCustomTips": "Dostępne zmienne: <b>%ip</b>: peer ip (wymagane), <b>%lang</b>: kod języka używanego przez tr-web-control<br/>&nbsp;&nbsp;<b>%host</b>: host, <b>%hostname</b>: nazwa hosta, <b>%protocol</b>: protokół, <b>%navlang</b>: kod języka nawigacji",
+			"ipInfoCountryCodeUrl": "URL pomocny w uzyskaniu kodu kraju:",
+			"ipInfoDetailUrl": "URL pomocny w uzyskaniu szczegółowych informacji:"
 		},
 		"public": {
 			"button-ok": "OK",
@@ -261,6 +267,16 @@
 			"move-data": "Przenieś pobrane pliki do nowej lokalizacji",
 			"set-error": "Błąd!",
 			"recheck-data": "Ponownie sprawdź pobrane dane"
+		},
+		"torrent-changeSpeedLimit": {
+			"title": "Ustaw maksymalną i minimalną prędkośc pobierania oraz wysyłania torrentów",
+			"downloadLimited": "Maksymalna globalna prędkość pobierania:",
+			"uploadLimited": "Maksymalna globalna prędkość wysyłania:",
+			"peer-limit": "Maksymalna ilość peerów dla tego torrenta:",
+			"seedRatioMode": "Proporcje dla torrentów:",
+			"seedIdleMode": "Wysyłanie torrentów zostanie zatrzymane, jeżeli nikt nie będzie ich pobierał przez:",
+			"doneDate": "Czas ukończenia:",
+			"seedTime": "Czas wysyłania:"
 		},
 		"system-replaceTracker": {
 			"title": "Zmiana trackerów",
@@ -369,10 +385,20 @@
 				"lastAnnounceTime": "Godzina połączenia",
 				"lastAnnounceTimedOut": "Timeout",
 				"downloadCount": "Ilość pobrań",
-				"nextAnnounceTime": "Następne połączenie"
+				"nextAnnounceTime": "Następne połączenie",
+				"leecherCount": "Liczba pobierających",
+				"seederCount": "Liczba seedujących",
+				"announceStateText": {
+					"0": "Nieaktywny",
+					"1": "Oczekujący",
+					"2": "W kolejce",
+					"3": "Aktywny"
+				}
 			},
 			"peers-fields": {
 				"address": "Adres IP",
+				"port": "Port",
+				"isUTP": "Włączone UTP",
 				"clientName": "Klient",
 				"flagStr": "Flaga",
 				"progress": "%",
@@ -387,6 +413,11 @@
 				"0": "Normalny",
 				"1": "Wysoki",
 				"-1": "Niski"
+			},
+			"filter-template-text": {
+				"1": "Wszystkie",
+				"2": "Plik 'padding' BitComet",
+				"3": "Niepotrzebne pliki"
 			},
 			"label": {
 				"name": "Nazwa:",
@@ -419,6 +450,7 @@
 				"button-allow": "Pobierz zaznaczone pliki",
 				"button-deny": "Pomiń zaznaczone pliki",
 				"button-priority": "Ustaw priorytet",
+				"button-filter": "Wyszukaj pliki według wyrażeń regularnych",
 				"button-tracker-add": "Dodaj nowy tracker",
 				"button-tracker-edit": "Edytuj tracker",
 				"button-tracker-remove": "Usuń tracker"
