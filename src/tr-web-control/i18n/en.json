@@ -136,6 +136,7 @@
 	"dialog": {
 		"torrent-add": {
 			"download-dir": "Download Dir:",
+			"used-download-dir": "Used Download Dir:",
 			"torrent-url": "Torrent URL:",
 			"tip-torrent-url": "Tip: Please add multiple content with an 'Enter' key press to separate",
 			"autostart": "Auto Start:",
@@ -166,7 +167,7 @@
 			"download-queue-enabled": "Enabled download queue, max queue number:",
 			"seed-queue-enabled": "Enabled seed queue, max queue number:",
 			"peer-port-random-on-start": "Use random port on start",
-			"port-forwarding-enabled": "Enabled forwarding",
+			"port-forwarding-enabled": "Enable UPnP",
 			"test-port": "Test the port",
 			"port-is-open-true": "The port is open",
 			"port-is-open-false": "The port is closed",
@@ -177,10 +178,10 @@
 				"preferred": "Preferred",
 				"tolerated": "Tolerated"
 			},
-			"utp-enabled": "Enabled µTP (UPnP)",
-			"dht-enabled": "Enabled DHT",
-			"lpd-enabled": "Enabled LPD",
-			"pex-enabled": "Enabled PEX",
+			"utp-enabled": "Enable µTP",
+			"dht-enabled": "Enable DHT",
+			"lpd-enabled": "Enable LPD",
+			"pex-enabled": "Enable PEX",
 			"peer-limit-global": "Maximum global number of peers:",
 			"peer-limit-per-torrent": "Maximum peers number of torrent:",
 			"speed-limit-down-enabled": "Max global download speed:",
@@ -224,7 +225,12 @@
 			"import-config": "Import configuration from file",
 			"export-config": "Export current configuration",
 			"import-config-confirm": "Do you want to import these configurations? This overrides the current configuration.",
-			"script-torrent-done-enabled": "Execute the following script when the torrent download is complete:"
+			"script-torrent-done-enabled": "Execute the following script when the torrent download is complete:",
+			"ipinfo": "IPinfo.io access token:",
+			"ipInfoCustom": "Additional IP query service settings, custom URL can be used, suitable for local query services",
+			"ipInfoCustomTips": "Available variables: <b>%ip</b>: peer IP (required), <b>%lang</b>: language code use by tr-web-control<br/>&nbsp;&nbsp;<b>%host</b>: host, <b>%hostname</b>: hostname, <b>%protocol</b>: protocol, <b>%navlang</b>: navigation language code",
+			"ipInfoCountryCodeUrl": "URL to get country code:",
+			"ipInfoDetailUrl": "URL to get details:"
 		},
 		"public": {
 			"button-ok": "OK",
@@ -261,6 +267,16 @@
 			"move-data": "If checked, move from previous location. otherwise, search 'New dir' for files.",
 			"set-error": "set error!",
 			"recheck-data": "Recheck data."
+		},
+		"torrent-changeSpeedLimit": {
+			"title": "Set torrents Max download speed and Max upload speed",
+			"downloadLimited": "Max global download speed:",
+			"uploadLimited": "Max global upload speed:",
+			"peer-limit": "Maximum peers for this torrent:",
+			"seedRatioMode": "Seed ratio for torrents to use:",
+			"seedIdleMode": "Torrents we're seeding will be stopped if they're idle for this long:",
+			"doneDate": "Finish Time:",
+			"seedTime": "Seed Time:"
 		},
 		"system-replaceTracker": {
 			"title": "Replace Trackers",
@@ -369,10 +385,20 @@
 				"lastAnnounceTime": "AnnounceTime",
 				"lastAnnounceTimedOut": "TimedOut",
 				"downloadCount": "Download count",
-				"nextAnnounceTime": "Next announce"
+				"nextAnnounceTime": "Next announce",
+				"leecherCount": "Leecher count",
+				"seederCount": "Seeder count",
+				"announceStateText": {
+					"0": "Inactive",
+					"1": "Waiting",
+					"2": "Queued",
+					"3": "Active"
+				}
 			},
 			"peers-fields": {
 				"address": "IP address",
+				"port": "Port",
+				"isUTP": "UTP enabled",
 				"clientName": "Client",
 				"flagStr": "Flag",
 				"progress": "Progress",
@@ -387,6 +413,11 @@
 				"0": "Normal",
 				"1": "High",
 				"-1": "Low"
+			},
+			"filter-template-text": {
+				"1": "All",
+				"2": "BitComet padding file",
+				"3": "Unnecessary files"
 			},
 			"label": {
 				"name": "Name:",
@@ -419,6 +450,7 @@
 				"button-allow": "Download checked file(s)",
 				"button-deny": "Skip checked file(s)",
 				"button-priority": "Set priority",
+				"button-filter": "Search files by regular expression",
 				"button-tracker-add": "Add New Tracker",
 				"button-tracker-edit": "Edit Tracker",
 				"button-tracker-remove": "Remove Tracker"
